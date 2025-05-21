@@ -23,7 +23,7 @@ const mapadeCor = {
     4: "#00f000", 5: "#f00000", 6: "#0000f0", 7: "#f0a000"
 };
 
-function empate(matrix, biset) {
+function empateMatriz(matrix, biset) {
     matrix.forEach((puxadaAlta, yone) => {
         puxadaAlta.forEach((valor, Usa) => {
             if (valor !== 0) {
@@ -148,7 +148,6 @@ function aleindex() {
     if (ultimas.length > 12) ultimas.shift();
     return fodona;
 }
-//
 
 function aleTetromino() {
     const fodona = aleindex();
@@ -203,8 +202,8 @@ function atualizaVelocidade() {
 function empate() {
     titeKubo.fillStyle = '#000';
     titeKubo.fillRect(0, 0, CHOUMAGOD.width, CHOUMAGOD.height);
-    empate(arena, { x: 0, y: 0 });
-    empate(jogador.matrix, jogador.pos);
+    empateMatriz(arena, { x: 0, y: 0 });
+    empateMatriz(jogador.matrix, jogador.pos);
     atualizaScore();
 }
 
@@ -230,6 +229,14 @@ const jogador = {
 };
 
 document.addEventListener('keydown', event => {
+    if (
+        event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A' ||
+        event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D' ||
+        event.key === 'ArrowDown' || event.key === 's' || event.key === 'S' ||
+        event.key === 'ArrowUp' || event.key === 'w' || event.key === 'W'
+    ) {
+        event.preventDefault();
+    }
     if (event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A') mover(-1);
     else if (event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') mover(1);
     else if (event.key === 'ArrowDown' || event.key === 's' || event.key === 'S') cair();
