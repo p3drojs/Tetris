@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris Melhorado</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<audio id="bgm" src="musica/Unravel.mp3" loop autoplay></audio>
+    <div id="container">
+        <canvas id="tetris" width="240" height="400"></canvas>
+        <div id="score">Score: 0</div>
+    </div>
+    <audio id="bgm" src="musica/unravel-tokyo-ghoul-piano.mp3" loop></audio>
+<script>
+  window.addEventListener('click', function() {
+    document.getElementById('bgm').play().catch(()=>{});
+  }, { once: true });
+</script>
+    <script src="tetris.js"></script>
+</body>
+</html>
